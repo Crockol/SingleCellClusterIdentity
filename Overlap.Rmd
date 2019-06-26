@@ -1,0 +1,50 @@
+---
+title: "Overlaps organoids and fetal single cell clusters"
+
+author:
+- name: Author Nicolò Caporale (nicolo.caporale@ieo.it)
+- name: Note the multintersect function was written by Pierre-Luc Germain (pierre-luc.germain@ieo.it)
+
+date: 'Date: `r format(Sys.Date(), "%B %d, %Y")`'
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        theme: 'simplex'
+        highlight: 'espresso'
+        #code_folding: hide
+---
+
+
+
+## Data loading
+
+For details on data preparation look [here](./DataPreparation/Internal/DataPreparation.html) for Internal Organoids clusters
+
+***
+[here](./DataPreparation/Nowakowski_et_al/DataPreparation.html) for Nowakowski_et_al clusters
+
+***
+and [here](./DataPreparation/Nowakowski_et_al/DataPreparation.html) for Amiri_et_al clusters
+
+```{r, warning=FALSE, message=FALSE}
+source("Functions/PaperCHIRfunctions.R")
+load("Data/Nowakowski_et_al.RData")
+load("Data/Amiri_et_al.RData")
+load("Data/Internal.RData")
+load("Data/universe.RData")
+```
+
+
+## Overlaps internal (clusters) vs Nowakowski_et_al (selected meaningful clusters)
+```{r,warning=FALSE,message=FALSE,fig.height=7,fig.width=8}
+multintersect(ClusterInternal, ClusterNowakowskiSelected,universe = universe)
+```
+
+
+## Overlaps internal (cell populations) vs Amiri_et_al (selected meaningful clusters)
+```{r, warning=FALSE,message=FALSE, fig.height=7,fig.width=8}
+multintersect( ClusterInternalArea, ClusterAmiriSelected,universe = universe)
+```
+
+

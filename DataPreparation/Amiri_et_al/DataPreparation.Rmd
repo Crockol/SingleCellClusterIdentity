@@ -1,0 +1,63 @@
+---
+date: 'Date: `r format(Sys.Date(), "%B %d, %Y")`'
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        theme: 'simplex'
+        highlight: 'espresso'
+        #code_folding: hide
+---
+
+
+
+To go back to the main page go [here](../../Overlap.html)
+
+
+## Data preparation
+From the differential expression analysis of single nuclei clusters (Table S6 of the paper by Amiri et al, DOI: 10.1126/science.aat6720), I create a list with the significant upregulated genes for each cluster
+
+```{r, warning=FALSE, message=FALSE}
+library(readxl)
+Genes<- list()
+a<- read_excel("aat6720_Table_S6.xlsx",sheet= "Cell Type Markers (c)")
+b<- read_excel("aat6720_Table_S6.xlsx",sheet= "Cluster Cell Frequency (b)")
+colnames(b) <- b[1,]
+b <- b[-1,]
+
+Cluster0 <- as.character(a$gene[which(a$cluster == 0 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster1 <- as.character(a$gene[which(a$cluster == 1 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster2 <- as.character(a$gene[which(a$cluster == 2 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster3 <- as.character(a$gene[which(a$cluster == 3 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster4 <- as.character(a$gene[which(a$cluster == 4 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster5 <- as.character(a$gene[which(a$cluster == 5 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster6 <- as.character(a$gene[which(a$cluster == 6 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster7 <- as.character(a$gene[which(a$cluster == 7 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster8 <- as.character(a$gene[which(a$cluster == 8 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster9 <- as.character(a$gene[which(a$cluster == 9 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster10 <- as.character(a$gene[which(a$cluster == 10 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster11 <- as.character(a$gene[which(a$cluster == 11 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster12 <- as.character(a$gene[which(a$cluster == 12 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster13 <- as.character(a$gene[which(a$cluster == 13 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+Cluster14 <- as.character(a$gene[which(a$cluster == 14 & a$p_val_adj<0.05 & a$avg_logFC>log2(1))])
+
+ClusterAmiriAll <- list(Cluster0=Cluster0,Cluster1=Cluster1,Cluster2=Cluster2,Cluster3=Cluster3,Cluster4=Cluster4,Cluster5=Cluster5,Cluster6=Cluster6,Cluster7=Cluster7,Cluster8=Cluster8,Cluster9=Cluster9,Cluster10=Cluster10,Cluster11=Cluster11,Cluster12=Cluster12,Cluster13=Cluster13,Cluster14=Cluster14)
+names(ClusterAmiriAll) <- b$`Proposed Name`[1:15]
+```
+
+## Cluster selection
+Here I only select the clusters that are more relevant for our cortical brain organoids
+```{r}
+ClusterAmiriSelected <- ClusterAmiriAll
+ClusterAmiriSelected$`Unknown 1 (U1)`<-NULL
+ClusterAmiriSelected$`Unknown 4 (U4)`<-NULL
+ClusterAmiriSelected$`Unknown 3(U3)/Glyc`<-NULL
+ClusterAmiriSelected$`Inhibitory/excitatory neurons (IN/EN)`<-NULL
+ClusterAmiriSelected$`Oligodendrocyte progenitors (OPC)`<-NULL
+ClusterAmiriSelected$`ventRG/outerRG/Astrocytes`<-NULL
+
+save(ClusterAmiriAll, ClusterAmiriSelected, file = "../../Data/Amiri_et_al.RData")
+```
+
+
+
