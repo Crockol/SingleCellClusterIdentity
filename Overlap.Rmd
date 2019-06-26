@@ -25,7 +25,7 @@ For details on data preparation look [here](./DataPreparation/Internal/DataPrepa
 [here](./DataPreparation/Nowakowski_et_al/DataPreparation.html) for Nowakowski_et_al clusters
 
 ***
-and [here](./DataPreparation/Nowakowski_et_al/DataPreparation.html) for Amiri_et_al clusters
+and [here](./DataPreparation/Amiri_et_al/DataPreparation.html) for Amiri_et_al clusters
 
 ```{r, warning=FALSE, message=FALSE}
 source("Functions/PaperCHIRfunctions.R")
