@@ -1742,7 +1742,13 @@ div.tocify {
 <a class="sourceLine" id="cb1-123" data-line-number="123">a&lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;Microglia.tsv&quot;</span>,<span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">header =</span> T,<span class="dt">fill =</span> T)</a>
 <a class="sourceLine" id="cb1-124" data-line-number="124">a &lt;-<span class="st"> </span>a[<span class="kw">which</span>(a<span class="op">$</span>avg_diff.float<span class="op">&gt;</span><span class="fl">1.5</span>),]</a>
 <a class="sourceLine" id="cb1-125" data-line-number="125">y&lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">as.character</span>(a<span class="op">$</span>id))</a>
-<a class="sourceLine" id="cb1-126" data-line-number="126">ClusterNowakowskiAll<span class="op">$</span>Microglia &lt;-<span class="st"> </span>y</a></code></pre></div>
+<a class="sourceLine" id="cb1-126" data-line-number="126">ClusterNowakowskiAll<span class="op">$</span>Microglia &lt;-<span class="st"> </span>y</a>
+<a class="sourceLine" id="cb1-127" data-line-number="127"></a>
+<a class="sourceLine" id="cb1-128" data-line-number="128"><span class="co">#Choroid</span></a>
+<a class="sourceLine" id="cb1-129" data-line-number="129">a&lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;Choroid.tsv&quot;</span>,<span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">header =</span> T,<span class="dt">fill =</span> T)</a>
+<a class="sourceLine" id="cb1-130" data-line-number="130">a &lt;-<span class="st"> </span>a[<span class="kw">which</span>(a<span class="op">$</span>avg_diff.float<span class="op">&gt;</span><span class="fl">1.5</span>),]</a>
+<a class="sourceLine" id="cb1-131" data-line-number="131">y&lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">as.character</span>(a<span class="op">$</span>id))</a>
+<a class="sourceLine" id="cb1-132" data-line-number="132">ClusterNowakowskiAll<span class="op">$</span>Choroid &lt;-<span class="st"> </span>y</a></code></pre></div>
 </div>
 <div id="cluster-selection" class="section level2">
 <h2>Cluster selection</h2>
@@ -1826,7 +1832,13 @@ div.tocify {
 <a class="sourceLine" id="cb2-77" data-line-number="77">y&lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">as.character</span>(a<span class="op">$</span>id))</a>
 <a class="sourceLine" id="cb2-78" data-line-number="78">ClusterNowakowskiSelected<span class="op">$</span>Astrocyte &lt;-<span class="st"> </span>y</a>
 <a class="sourceLine" id="cb2-79" data-line-number="79"></a>
-<a class="sourceLine" id="cb2-80" data-line-number="80"><span class="kw">save</span>(ClusterNowakowskiAll, ClusterNowakowskiSelected, <span class="dt">file =</span> <span class="st">&quot;../../Data/Nowakowski_et_al.RData&quot;</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb2-80" data-line-number="80"><span class="co">#Choroid</span></a>
+<a class="sourceLine" id="cb2-81" data-line-number="81">a&lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;Choroid.tsv&quot;</span>,<span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>,<span class="dt">header =</span> T,<span class="dt">fill =</span> T)</a>
+<a class="sourceLine" id="cb2-82" data-line-number="82">a &lt;-<span class="st"> </span>a[<span class="kw">which</span>(a<span class="op">$</span>avg_diff.float<span class="op">&gt;</span><span class="fl">1.5</span>),]</a>
+<a class="sourceLine" id="cb2-83" data-line-number="83">y&lt;-<span class="st"> </span><span class="kw">unique</span>(<span class="kw">as.character</span>(a<span class="op">$</span>id))</a>
+<a class="sourceLine" id="cb2-84" data-line-number="84">ClusterNowakowskiSelected<span class="op">$</span>Choroid &lt;-<span class="st"> </span>y</a>
+<a class="sourceLine" id="cb2-85" data-line-number="85"></a>
+<a class="sourceLine" id="cb2-86" data-line-number="86"><span class="kw">save</span>(ClusterNowakowskiAll, ClusterNowakowskiSelected, <span class="dt">file =</span> <span class="st">&quot;../../Data/Nowakowski_et_al.RData&quot;</span>)</a></code></pre></div>
 </div>
 
 

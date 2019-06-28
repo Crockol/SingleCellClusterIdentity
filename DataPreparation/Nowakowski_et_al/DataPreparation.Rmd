@@ -144,6 +144,12 @@ a<- read.table("Microglia.tsv",sep = "\t",header = T,fill = T)
 a <- a[which(a$avg_diff.float>1.5),]
 y<- unique(as.character(a$id))
 ClusterNowakowskiAll$Microglia <- y
+
+#Choroid
+a<- read.table("Choroid.tsv",sep = "\t",header = T,fill = T)
+a <- a[which(a$avg_diff.float>1.5),]
+y<- unique(as.character(a$id))
+ClusterNowakowskiAll$Choroid <- y
 ```
 
 ## Cluster selection
@@ -227,6 +233,12 @@ a<- read.table("Astrocyte.tsv",sep = "\t",header = T,fill = T)
 a <- a[which(a$avg_diff.float>1.5),]
 y<- unique(as.character(a$id))
 ClusterNowakowskiSelected$Astrocyte <- y
+
+#Choroid
+a<- read.table("Choroid.tsv",sep = "\t",header = T,fill = T)
+a <- a[which(a$avg_diff.float>1.5),]
+y<- unique(as.character(a$id))
+ClusterNowakowskiSelected$Choroid <- y
 
 save(ClusterNowakowskiAll, ClusterNowakowskiSelected, file = "../../Data/Nowakowski_et_al.RData")
 ```
