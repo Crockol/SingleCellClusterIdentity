@@ -39,21 +39,26 @@ load("Data/universe.RData")
 ## Overlaps internal (clusters) vs Nowakowski_et_al (selected meaningful clusters)
 ```{r,warning=FALSE,message=FALSE,fig.height=7,fig.width=8}
 multintersect(ClusterInternal, ClusterNowakowskiSelected,universe = universe)
+multintersect(ClusterInternal, ClusterNowakowskiSelected,universe = universe,keyWrite = "prob")
 ```
 
 ## Overlaps internal (cell populations) vs Nowakowski_et_al (selected meaningful clusters)
 ```{r,warning=FALSE,message=FALSE,fig.height=7,fig.width=8}
 multintersect(ClusterInternalArea, ClusterNowakowskiSelected,universe = universe)
+multintersect(ClusterInternalArea, ClusterNowakowskiSelected,universe = universe, keyWrite = "prob")
 ```
 
 ## Overlaps internal (clusters) vs Amiri_et_al (selected meaningful clusters)
 ```{r, warning=FALSE,message=FALSE, fig.height=7,fig.width=8}
 multintersect( ClusterInternal, ClusterAmiriSelected,universe = universe)
+multintersect( ClusterInternal, ClusterAmiriSelected,universe = universe,keyWrite = "prob")
+
 ```
 
 ## Overlaps internal (cell populations) vs Amiri_et_al (selected meaningful clusters)
 ```{r, warning=FALSE,message=FALSE, fig.height=7,fig.width=8}
 multintersect( ClusterInternalArea, ClusterAmiriSelected,universe = universe)
+multintersect( ClusterInternalArea, ClusterAmiriSelected,universe = universe,keyWrite = "prob")
 ```
 
 
